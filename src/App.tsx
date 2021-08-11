@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
-import { Table } from "./components/table";
+import RxjsCom from "./components/rxjsCom";
 import { Tasks } from "./components/tasks";
 import CustomizedTables from "./components/tableMaterial";
+import ButtonAppBar from "./components/appBar";
 
 const container: React.CSSProperties = {
   position: "relative",
@@ -12,10 +13,14 @@ const container: React.CSSProperties = {
 
 function App() {
   return (
-    <div style={container}>
-      <CustomizedTables />
-      <Tasks />
-    </div>
+    <>
+      <RxjsCom />
+      <ButtonAppBar />
+      <div style={container}>
+        <CustomizedTables />
+        <Tasks />
+      </div>
+    </>
   );
 }
 
