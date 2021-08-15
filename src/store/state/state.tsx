@@ -12,8 +12,8 @@ export interface IState {
 }
 
 export const appInitState: IState = {
-  counter: 1,
-  nextId: 2,
+  counter: 0,
+  nextId: 1,
   loading: false,
-  tasks: [{ id: 1, task: "learn react", status: false }],
+  tasks: [],
 };

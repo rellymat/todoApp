@@ -20,12 +20,16 @@ const tasksStyle: React.CSSProperties = {
 };
 
 const addNewTaskEffect =
-  (description: string) => (dispatch: Function, getState: Function) => {
-    const tasks = getCounter(getState());
-    if (tasks + 1 > 10) {
-      console.log("you are busy");
-    } else {
+  (description: string) => async (dispatch: Function, getState: Function) => {
+    try {
+      await axios.post("http://localhost:3000/tasks/addTask", {
+        id: getState().nextId,
+        task: description,
+        status: false,
+      });
       dispatch(addTask(description));
+    } catch (e) {
+      console.log(e);
     }
   };
 

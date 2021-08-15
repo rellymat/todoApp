@@ -41,6 +41,7 @@ export const loadTasksEffect =
     dispatch(loadingTasks());
     const headData = data.splice(0, 1);
     const tasks = convertToTasks(headData, getState().nextId);
+    console.log(tasks[0]);
     dispatch(updateTasks(tasks));
     dispatch(doneLoading());
   };

@@ -16,7 +16,12 @@ import Button from "@material-ui/core/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../store/selectors/tasksSelectors";
 import { ITask } from "../store/state/state";
-import { deleteTask, updateTask } from "../store/actions/appActions";
+import {
+  deleteTask,
+  deleteTaskEffect,
+  updateTask,
+  updateTaskEffect,
+} from "../store/actions/appActions";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -71,7 +76,7 @@ export default function CustomizedTables() {
               <StyledTableCell align="center">{task.task}</StyledTableCell>
               <StyledTableCell
                 align="center"
-                onClick={() => dispatch(updateTask(task.id))}
+                onClick={() => dispatch(updateTaskEffect(task.id))}
                 style={{ cursor: "pointer" }}
               >
                 {task.status ? "Yes" : "No"}
@@ -80,7 +85,7 @@ export default function CustomizedTables() {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => dispatch(deleteTask(task.id))}
+                  onClick={() => dispatch(deleteTaskEffect(task.id))}
                 >
                   delete
                 </Button>
